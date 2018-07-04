@@ -29,7 +29,7 @@ along with XtraBackup Manager.  If not, see <http://www.gnu.org/licenses/>.
 		private $log;
 
 		// Construct
-		private function __construct($host, $username, $password, $schema, $port, $socket = false) {
+		public function __construct($host, $username, $password, $schema, $port, $socket = false) {
 
 			if( $socket === false ) {
 				parent::__construct($host, $username, $password, $schema, $port);

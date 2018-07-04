@@ -778,8 +778,8 @@ along with XtraBackup Manager.  If not, see <http://www.gnu.org/licenses/>.
 							default:
 							break;
 
-						}
-						$cron .= $scheduledBackupInfo['cron_expression'].' '.$XBM_AUTO_INSTALLDIR.'/xbm backup run '.$hostInfo['hostname'].' '.$scheduledBackupInfo['name']." quiet\n";
+                        }
+						$cron .= $scheduledBackupInfo['cron_expression'].' '.$XBM_AUTO_INSTALLDIR.'/xbm backup run '.$hostInfo['hostname'].' '.$scheduledBackupInfo['name'].' quiet; if [ -x '.$XBM_AUTO_INSTALLDIR.'/backup-post.sh ]; then '.$XBM_AUTO_INSTALLDIR.'/backup-post.sh '.$hostInfo['hostname'].' '.$scheduledBackupInfo['name']."; fi \n";
 					} else {
 						continue;
 					}

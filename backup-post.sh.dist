@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# To enable this script, rename it to backup-post.sh then make it executable
+
+xbm_hostname="$1"
+xbm_backupname="$2"
+
+xbm_checker_dir='/home/xbm/xtrabackup-checker'
+
+if ! [ -f $xbm_checker_dir/check-backup-unattended.php ]; then
+    echo 'check-backup-unattended.php not found. Exiting...' | logger -txtrabackup-checker
+fi
+
+php $xbm_checker_dir/check-backup-unattended.php "$xbm_hostname" "$xbm_backupname" 2>&1 | logger -txtrabackup-checker
+
