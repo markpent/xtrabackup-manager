@@ -58,6 +58,9 @@ along with XtraBackup Manager.  If not, see <http://www.gnu.org/licenses/>.
 
 	// Include config and class / function files
 	require('config.php');
+	if (is_readable("$XBM_AUTO_INSTALLDIR/includes/config_local.php")) {
+		require("$XBM_AUTO_INSTALLDIR/includes/config_local.php");
+	}
 	require('dbConnection.class.php');
 	require('service.classes.php');
 	require('host.class.php');
