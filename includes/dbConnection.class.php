@@ -100,7 +100,7 @@ along with XtraBackup Manager.  If not, see <http://www.gnu.org/licenses/>.
 
 
 		// Construct
-		public function query($sql) {
+		public function query($sql, $resultmode = NULL) {
 
 			if( ( $this->log !== false ) ) {
 				$backtrace = debug_backtrace();
