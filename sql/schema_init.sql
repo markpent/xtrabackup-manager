@@ -146,7 +146,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `mysql_types` WRITE;
 /*!40000 ALTER TABLE `mysql_types` DISABLE KEYS */;
-INSERT INTO `mysql_types` VALUES (1,'Percona Server 5.1 w/ InnoDB Plugin','xtrabackup'),(2,'MySQL 5.1 w/ InnoDB Plugin','xtrabackup'),(3,'Percona Server 5.0 w/ built-in InnoDB','xtrabackup_51'),(4,'MySQL 5.0 w/ built-in InnoDB','xtrabackup_51'),(5,'MySQL 5.1 w/ built-in InnoDB','xtrabackup_51'),(6,'Percona Server 5.5','xtrabackup_55'),(7,'MySQL 5.5','xtrabackup_55'),(8,'MySQL 5.6','xtrabackup_56');
+INSERT INTO `mysql_types` VALUES (1,'Percona Server 5.1 w/ InnoDB Plugin','xtrabackup'),(2,'MySQL 5.1 w/ InnoDB Plugin','xtrabackup'),(3,'Percona Server 5.0 w/ built-in InnoDB','xtrabackup_51'),(4,'MySQL 5.0 w/ built-in InnoDB','xtrabackup_51'),(5,'MySQL 5.1 w/ built-in InnoDB','xtrabackup_51'),(6,'Percona Server 5.5','xtrabackup_55'),(7,'MySQL 5.5','xtrabackup_55');
 /*!40000 ALTER TABLE `mysql_types` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -208,6 +208,7 @@ CREATE TABLE `scheduled_backups` (
   `mysql_type_id` int(10) unsigned default NULL,
   `backup_strategy_id` int(10) unsigned NOT NULL default '1',
   `throttle` int(10) unsigned NOT NULL default 0,
+  `extra_innobackupex_args` varchar(1024) NOT NULL default '',
   PRIMARY KEY  (`scheduled_backup_id`),
   UNIQUE KEY `i_host_name` (`name`,`host_id`),
   KEY `i_host` (`host_id`)
@@ -265,7 +266,7 @@ SET character_set_client = @saved_cs_client;
 
 LOCK TABLES `schema_version` WRITE;
 /*!40000 ALTER TABLE `schema_version` DISABLE KEYS */;
-INSERT INTO `schema_version` VALUES (1006);
+INSERT INTO `schema_version` VALUES (1007);
 /*!40000 ALTER TABLE `schema_version` ENABLE KEYS */;
 UNLOCK TABLES;
 
